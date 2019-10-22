@@ -11,7 +11,7 @@
     <version>2.0.0</version>
   </parent>
   <description>Sentinel-1 feature tracking</description>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <properties>
     <summary>Sentinel-1 feature tracking</summary>
     <description>Sentinel-1 feature tracking</description>
@@ -119,6 +119,7 @@
                     <require>java-1.8.0-openjdk-devel</require>
                     <require>snap6</require>
                     <require>gdal</require>
+                    <require>wget</require>
                   </requires>
                 </configuration>
               </execution>
