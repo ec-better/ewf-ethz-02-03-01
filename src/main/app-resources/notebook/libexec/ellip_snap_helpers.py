@@ -116,7 +116,11 @@ class GraphProcessor():
     
     def run(self):
         
-        os.environ['LD_LIBRARY_PATH'] = '.'
+        if 'LD_LIBRARY_PATH' not in os.environ.keys():
+            os.environ['LD_LIBRARY_PATH'] = '.'
+        else:
+            os.environ['LD_LIBRARY_PATH'] = '.:' + os.environ['LD_LIBRARY_PATH']
+
         
         print 'Processing the graph'
         
@@ -137,9 +141,6 @@ class GraphProcessor():
             print 'Process PID: %s' % p.pid
             res, err = p.communicate()
             print res, err
-            
-            if err:
-                raise Exception(err)
         finally:
             os.remove(path)
             
