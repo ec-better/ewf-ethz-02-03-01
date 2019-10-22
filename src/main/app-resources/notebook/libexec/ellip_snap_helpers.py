@@ -137,6 +137,9 @@ class GraphProcessor():
             print 'Process PID: %s' % p.pid
             res, err = p.communicate()
             print res, err
+            
+            if err:
+                raise Exception(err)
         finally:
             os.remove(path)
             
