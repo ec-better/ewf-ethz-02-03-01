@@ -118,6 +118,7 @@
                     <require>miniconda</require>
                     <require>java-1.8.0-openjdk-devel</require>
                     <require>snap6</require>
+                    <require>gdal</require>
                   </requires>
                 </configuration>
               </execution>
