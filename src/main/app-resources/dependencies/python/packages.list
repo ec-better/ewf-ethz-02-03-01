@@ -2,8 +2,6 @@
 # $ conda create --name <env> --file <this file>
 # platform: linux-64
 _libgcc_mutex=0.1=main
-_r-mutex=1.0.0=anacondar_1
-_tflow_select=2.3.0=mkl
 absl-py=0.7.1=py27_0
 affine=2.3.0=py_0
 alabaster=0.7.10=py27he5a193a_0
@@ -42,7 +40,6 @@ conda-env=2.6.0=h36134e3_1
 conda-verify=2.0.0=py27hf052a9d_0
 configparser=3.5.0=py27_0
 contextlib2=0.5.5=py27hbf4c468_0
-cookiecutter=1.5.1=py27_0
 cryptography=1.7.1=py27_0
 curl=7.49.0=1
 cycler=0.10.0=py27_0
@@ -53,7 +50,6 @@ deprecated=1.2.4=py27h191d90e_0
 descartes=1.1.0=py27h5233db4_0
 docutils=0.14=py27hae222c1_0
 ellip_atc_helpers=0.0.8=py27h787cd4c_1
-ellip_atom=1.0.2=py27h000aa6d_1
 ellip_triggers=0.9.6=py27hd14d85b_0
 entrypoints=0.2.2=py27_0
 enum34=1.1.6=py27_0
@@ -212,11 +208,9 @@ rpy2=2.8.5=py27r3.3.2_2
 rtree=0.8.3=py27_0
 ruamel_yaml=0.11.14=py27_0
 run_dic=1.0.5=py27_0
-run_inverse_model=1.0.0=py27_0
 scandir=1.4=py27_0
 scikit-learn=0.19.1=py27h445a80a_0
 scipy=1.0.0=py27hf5f0f52_0
-seaborn=0.9.0=py27_0
 selenium=3.11.0=py27_0
 send2trash=1.5.0=py27_0
 setuptools=41.0.1=py27_0
@@ -255,7 +249,6 @@ webencodings=0.5=py27_0
 werkzeug=0.15.5=py_0
 wheel=0.33.4=py27_0
 whichcraft=0.5.2=py_1
-whittaker=2.0.1=py27hdca2ae4_0
 widgetsnbextension=1.2.6=py27_0
 wrapt=1.11.2=py27h7b6447c_0
 xlrd=1.2.0=py27_0
