@@ -61,7 +61,7 @@ def parametrize():
                 
                     if names[0] == 'input_references':
                         ciop.log('INFO', 'cell %s updated with \'input_references\' value %s' % (index, references))
-                        cell['source'] = 'input_references = %s' % references  
+                        cell['source'] = 'input_references = %s' % references
                 
                 if len(names) != 2:
                     continue
@@ -133,9 +133,15 @@ def stage_in():
       
       search = ciop.search(end_point = reference, params = [], output_fields='enclosure,identifier', model='GeoTime')
       assert(search), sys.exit(ERR_RESOLUTION)
-  
+      
+      username = ciop.getparam('_T2Username')
+      api_key = ciop.getparam('_T2ApiKey')
+      
+      assert(username)
+      assert(api_key)
+
       ciop.log('INFO', 'Retrieve %s from %s' % (search[0]['identifier'], search[0]['enclosure']))
-      retrieved = ciop.copy(search[0]['enclosure'], tmp_dir)
+      retrieved = ciop.copy(search[0]['enclosure'], tmp_dir, credentials='{}:{}'.format(username, api_key))
       assert(retrieved), sys.exit(ERR_STAGEIN)
 
       identifiers.append(search[0]['identifier'])
