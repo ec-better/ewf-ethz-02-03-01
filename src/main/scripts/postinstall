@@ -1,5 +1,9 @@
 #!/bin/bash
 
+conda update conda -y
+
+conda install -y --file /application/dependencies/python/packages.list
+
 cd /tmp
 mkdir matlab_runtime_94
 cd matlab_runtime_94

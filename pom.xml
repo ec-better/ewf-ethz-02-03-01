@@ -8,10 +8,10 @@
   <parent>
     <groupId>com.terradue</groupId>
     <artifactId>dcs-python-parent</artifactId>
-    <version>2.0.0</version>
+    <version>3.0.1-docker</version>
   </parent>
   <description>Systematic modelling of surface deformation at active volcanoes</description>
-  <version>1.0.0</version>
+  <version>1.0.10</version>
   <properties>
     <summary>Systematic modelling of surface deformation at active volcanoes</summary>
     <description>Systematic modelling of surface deformation at active volcanoes</description>
@@ -110,13 +110,12 @@
                     <scriptFile>${basedir}/src/main/scripts/postinstall</scriptFile>
                     <fileEncoding>utf-8</fileEncoding>
                   </postinstallScriptlet>
-                  <postinstallScriptlet combine.self="override">
-                    <script>conda update conda -y &amp;&amp; conda install -y --file /application/dependencies/python/packages.list</script>
-                  </postinstallScriptlet>
                   <!-- Set here the dependencies installed with 'sudo yum install'-->
                   <requires>
                     <require>miniconda</require>
                     <require>wget</require>
+                    <require>libXt</require>
+                    <require>gdal</require>
                   </requires>
                 </configuration>
               </execution>
@@ -127,4 +126,3 @@
     </profile>
   </profiles>
 </project>
-
