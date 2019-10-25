@@ -139,6 +139,9 @@ def stage_in():
       
       assert(username)
       assert(api_key)
+      
+      ciop.log('INFO', '{}:{}'.format(username, api_key))
+      ciop.log('INFO', os.environ.get('ciop_job_nodeid'))
 
       ciop.log('INFO', 'Retrieve %s from %s' % (search[0]['identifier'], search[0]['enclosure']))
       retrieved = ciop.copy(search[0]['enclosure'], tmp_dir, credentials='{}:{}'.format(username, api_key))
@@ -161,7 +164,6 @@ def execute(nb_source, nb_target, kernel = 'python2'):
     # execute the notebook
     ep = ExecutePreprocessor(timeout=None, kernel_name=kernel)
 
-    
     try:
       out = ep.preprocess(nb, {'metadata': {'path': './'}})
     except CellExecutionError:
