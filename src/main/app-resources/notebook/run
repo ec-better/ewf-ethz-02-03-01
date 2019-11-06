@@ -146,7 +146,9 @@ def stage_in():
       ciop.log('INFO', 'Retrieve %s from %s' % (search[0]['identifier'], search[0]['enclosure']))
       retrieved = ciop.copy(search[0]['enclosure'], tmp_dir, credentials='{}:{}'.format(username, api_key))
       assert(retrieved), sys.exit(ERR_STAGEIN)
-
+        
+      ciop.log('INFO', 'Product %s retrieved and stored in %s' % (search[0]['identifier'], retrieved))
+      
       identifiers.append(search[0]['identifier'])
       enclosures.append(search[0]['enclosure'])
       local_files.append(retrieved) 
