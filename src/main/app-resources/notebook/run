@@ -127,31 +127,34 @@ ciop = cioppy.Cioppy()"""))
       nbf.write(nb_stagein, f)  
         
 def stage_in():
- 
+     
     for reference in references:
-      ciop.log('INFO', 'The input reference is: ' + reference)    
-      
-      search = ciop.search(end_point = reference, params = [], output_fields='enclosure,identifier', model='GeoTime')
-      assert(search), sys.exit(ERR_RESOLUTION)
-      
-      username = ciop.getparam('_T2Username')
-      api_key = ciop.getparam('_T2ApiKey')
-      
-      assert(username)
-      assert(api_key)
-      
-      #ciop.log('INFO', '{}:{}'.format(username, api_key))
-      #ciop.log('INFO', os.environ.get('ciop_job_nodeid'))
-
-      ciop.log('INFO', 'Retrieve %s from %s' % (search[0]['identifier'], search[0]['enclosure']))
-      retrieved = ciop.copy(search[0]['enclosure'], tmp_dir, credentials='{}:{}'.format(username, api_key))
-      assert(retrieved), sys.exit(ERR_STAGEIN)
         
-      ciop.log('INFO', 'Product %s retrieved and stored in %s' % (search[0]['identifier'], retrieved))
+        ciop.log('INFO', 'The input reference is: ' + reference)
       
-      identifiers.append(search[0]['identifier'])
-      enclosures.append(search[0]['enclosure'])
-      local_files.append(retrieved) 
+        username = ciop.getparam('_T2Username')
+        assert(username), sys.exit(ERR_STAGEIN)
+        
+        api_key = ciop.getparam('_T2ApiKey')
+        assert(api_key), sys.exit(ERR_STAGEIN)
+      
+        search = ciop.search(end_point = reference, 
+                           params = [], 
+                           output_fields='enclosure,identifier', 
+                           model='GeoTime', 
+                           creds='{}:{}'.format(username, api_key))
+        assert(search), sys.exit(ERR_RESOLUTION)
+
+        ciop.log('INFO', 'Retrieve %s from %s' % (search[0]['identifier'], search[0]['enclosure']))
+        
+        retrieved = ciop.copy(search[0]['enclosure'], tmp_dir, credentials='{}:{}'.format(username, api_key))
+        assert(retrieved), sys.exit(ERR_STAGEIN)
+         
+        ciop.log('INFO', 'Product %s retrieved and stored in %s' % (search[0]['identifier'], retrieved))
+        
+        identifiers.append(search[0]['identifier'])
+        enclosures.append(search[0]['enclosure'])
+        local_files.append(retrieved) 
 
 def execute(nb_source, nb_target, kernel = 'python2'):
     
